@@ -2,10 +2,9 @@ from aiogram import types
 from loader import bot
 from data.config import CHANNELS
 
-async def user_in_channel(message: types.Message):
-    
-    user_id = message.from_user.id
+async def user_in_channel(user_id: str):
     user_not_in_channels = []
+    
     for channel_id,channel_url in CHANNELS.items():
         
         member = await bot.get_chat_member(chat_id=channel_id,user_id=user_id)
